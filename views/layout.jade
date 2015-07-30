@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title Dribbble Aerolab
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link( rel="shortcut icon", type="image/x-icon", href="http://www.startupbuenosaires.com/wp-content/uploads/2015/05/3TZ23CW3.png" )
+		script(type="text/javascript", src="http://code.jquery.com/jquery-2.1.4.js")
+
+		script(type="text/javascript", src="/javascript/loadtxt.js")
+		script(type="text/javascript", src="/public//javascript/loadtxt.js")
+		script
+			$.jribbble.getShotsByPlayerId('aerolab, function (work) {
+			$.each(work.shots, function (x, shot) {
+			$('#work').append('<li><h2>' + shot.title + '</h2><a href="' + shot.url + '"><img src="' + shot.image_teaser_url + '" alt="' + shot.title + '"></a></li> ');
+			});
+			}, {page: 1, per_page: 4});
+			
+	body
+	block content
